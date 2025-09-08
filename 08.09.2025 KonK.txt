@@ -1,0 +1,217 @@
+T: Wprowadzenie do PHP
+
+ 1. PHP jest językiem skryptowym działającym po stronie serwera.
+
+ 2. Zalety:
+wydajność
+
+
+skalowalność
+
+
+interfejsy do różnych systemów baz danych
+
+
+niski koszt
+
+
+łatwość nauki i wykorzystania
+
+
+wbudowane biblioteki służące do rozwiązywania różnych popularnych zadań WWW
+
+
+łatwość nauki i wykorzystywania
+
+
+szeroka obsługa mechanizmów zorientowanych obiektowo
+
+
+przenośność
+
+
+dostępność kodu źródłowego, wsparcia i dokumentacji
+
+
+
+ 3. Tworzenie stron PHP
+Strony PHP zapisujemy w plikach z rozszerzeniem .php.
+
+
+Umieszczamy je w folderze: ..\xampp\htdocs\.
+
+
+W przeglądarce wpisujemy adres: localhost/nazwa_pliku.php
+
+
+
+ Echo i Print
+Instrukcje echo i print służą do generowania stringów.
+ W tych instrukcjach kropka (.) jest operatorem konkatenacji, czyli łączenia tekstów.
+
+ KOMENTARZE
+Komentarze służą do:
+wstawiania opisów
+
+
+wyłączania fragmentów kodu
+
+
+
+ OSADZANIE SKRYPTÓW W KODZIE HTML
+W pliku PHP umieszczamy kod HTML-owy oraz wstawki PHP w odpowiednich miejscach, gdzie treść ma być generowana dynamicznie.
+
+ Identyfikator
+Identyfikator jest nazwą tworzoną przez programistę.
+
+
+Reguły tworzenia: dowolna długość, określane są litery
+
+
+Bez polskich liter
+
+
+Nazwa powinna być intuicyjna
+
+
+Przy długich nazwach wielowyrazowych używamy metody: camelCase lub snake_case
+
+
+
+ ZMIENNA
+Przechowuje informacje
+
+
+Zmienna zaczyna się znakiem dolara ($)
+
+
+
+ TYPY DANYCH
+W PHP nie ma deklaracji typów danych
+
+
+Typy sprawdzamy funkcjami:
+
+
+gettype()
+
+
+is_int()
+
+
+is_float()
+
+
+is_string()
+
+
+var_dump()
+
+
+<?php
+$a_bool = TRUE;
+$a_str = "foo";
+$an_int = 12;
+$pi = 3.141;
+echo gettype($a_bool);
+echo gettype($a_str);
+?>
+
+
+ LICZBY CAŁKOWITE
+<?php
+$liczba1 = 42;
+print("Liczba to: " . $liczba1);
+
+$LiczbaOctalna = 042;
+print("<br>Liczba ósemkowa to: " . $LiczbaOctalna);
+
+$LiczbaHex = 0x2A;
+print("<br>Liczba szesnastkowa to: " . $LiczbaHex);
+
+$LiczbaBin = 0b101010;
+print("<br>Liczba binarna to: " . $LiczbaBin);
+
+$LiczbaZmiennoprzecinkowa = 3.14;
+print("<br>Liczba zmiennoprzecinkowa to: " . $LiczbaZmiennoprzecinkowa);
+
+$LiczbaDuza = 1_234_567;
+print("<br>Liczba duża to: " . $LiczbaDuza);
+?>
+
+
+ LICZBY RZECZYWISTE
+<?php
+$a = 1.234;
+$b = 1.2e3;
+$c = 7E-10;
+$d = 1_234.567;
+?>
+
+
+ STRINGI
+Są to ciągi znaków, zawarte między apostrofami lub cudzysłowami:
+<?php
+echo 'this is a simple string';
+echo 'You can also have ambedded newlines in strings this way as it is okay to do';
+?>
+
+
+ Znaki specjalne – modyfikacja / ucieczka
+<?php
+echo 'Arnold once said: "I\'ll be back"<br>';
+echo 'You deleted C:\\*.*?';
+?>
+
+
+ Stringi w apostrofach
+Nie interpretują niektórych znaków modyfikacji:
+<?php
+echo 'this will not expand: \n a newline';
+?>
+
+
+ Zmienne w stringach
+<?php
+echo 'Variable value is $Number';
+?>
+
+
+ Funkcje obsługujące stringi
+ strlen() – zwraca długość tekstu
+ mb_strlen() – zwraca długość tekstu z polskimi znakami
+<?php
+echo strlen("Łódź"); // outputs 7 // polskie znaki w unicode zajmują dwa bajty
+echo strlen("Hello world!"); // outputs 12
+echo mb_strlen("Łódź"); // outputs 4
+?>
+
+
+ str_word_count() – liczy wyrazy
+<?php
+echo str_word_count("Hello world!"); // output
+?>
+
+
+ str_replace() – zastępuje tekst stringiem
+<?php
+echo str_replace("world", "dolly", "Hello world"); // output
+?>
+
+
+strpos() – wyszukuje słowo i liczy, ile ma liter
+<?php
+echo strpos("Hello world!", "world");
+?>
+
+
+printf( )
+printf( string $format, mixed ...$values ) - Output a formatted string
+$tekst = "Hello";
+
+printf("[%s]\n", $tekst);        // wypisze [Hello]
+printf("[%10s]\n", $tekst);       // wypisze [     Hello]  (tekst wyrównany do prawej na 10 znakach)
+printf("[%-10s]\n", $tekst);      // wypisze [Hello     ]  (tekst wyrównany do lewej na 10 znakach)
+printf("[%.3s]\n", $tekst);       // wypisze [Hel]  (wypisuje tylko pierwsze 3 znaki tekstu)
+printf("[%10.3s]\n", $tekst);     // wypisze [       Hel]  (pierwsze 3 znaki wyrównane do prawej na 10 znakach)
+printf("[%-10.3s]\n", $tekst);    // wypisze [Hel       ]  (pierwsze 3 znaki wyrównane do lewej na 10
