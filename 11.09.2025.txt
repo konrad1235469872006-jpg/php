@@ -1,0 +1,78 @@
+
+Zmienne- nadawanie wartosci przez referencje
+<?php
+$foo
+$foo = 'Bob';// Assign the value 'Bob' to $foo
+$bar
+$bar = &$foo;
+$bar='Andy'
+ echo $bar;
+ echo $foo;
+
+
+?>
+// Reference $foo via $bar, and vice versa.
+// $foo is altered too.
+
+
+zmienne statyczne - jest inicjalizowana tylko raz. Jest ona wykorzystywana jako licznik uruchomien funkcji .
+<?php
+function test() {
+static $licznik=0;
+echo $licznik
+$licznik++;
+}
+test();
+test();
+test();
+"<br>";
+
+stałe sa podobne do zmiennych ale wartosc nie moze byc zmieniona
+tablica jest lista elementów umieszczonych jeden za drugim do wybranego elementu odwolujemy sie podajac indeks czyli jego numer. numerujemy od zero. indeksowany od zera
+
+Tablice indeksowane 
+
+<?php
+ $cars = array ("Volvo", "BMW", "Toyota");
+ echo "I like " . $cars[0] . ", " . $cars [1] . " and " . $cars [2] . "."
+$fruits = ["Apple", "Banana", "Orange"];
+echo var_dump($fruits)."<br>";
+$names = [];
+$names[0] = "John";
+$names[1] = "Jane";
+$names[2] = "Doe"; print var_dump($names);
+
+tablice asocjacyjne przechowują elementy parami. to znaczy klucz i wartosc
+
+Tablice wielowymiarowe - tablica wielowymiarowa posiada elementy bedace tablicami
+
+
+
+<?php
+// Tworzenie tablicy wielowymiarowej
+$cars = array(
+    array("Volvo", 22),
+    array("BMW",   15)
+);
+
+
+// Wyświetlenie tabeli HTML
+echo "<table>\n";
+echo "  <tr><td>Car</td><td>In stock</td></tr>\n";
+echo "  <tr><td>" . $cars[0][0] . "</td><td>" . $cars[0][1] . "</td></tr>\n";
+echo "  <tr><td>" . $cars[1][0] . "</td><td>" . $cars[1][1] . "</td></tr>\n";
+echo "</table>\n";
+?>
+
+count()- zwraca liczbe całkowita z elementu z tablicy
+<?php
+$cars=array("volvo","bmw","toyota");
+echo "size of the array cars =".count($cars);
+
+sortowanie tablic - sortowanie tablic indeksowanych
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+asort($age);
+arsort()->reverse
+ksort($age);
+krsort()->revere
