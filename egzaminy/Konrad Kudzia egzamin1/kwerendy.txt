@@ -1,0 +1,14 @@
+kw1.select nazwa, ulica 
+from kwiaciarnie
+where miasto = 'Malbork';
+
+kw2.select id_kwiaciarni, COUNT(*) AS liczba_zamowien
+from zamowienia
+group by id_kwiaciarni;
+
+kw3.select kwiaciarnie.nazwa, kwiaciarnie.miasto, zamowienia.kwiaty
+from kwiaciarnie
+join zamowienia on kwiaciarnie.id_kwiaciarni = zamowienia.id_kwiaciarni
+where zamowienia.data = '2017-01-07';
+
+kw4.create table klienci ( id int AUTO_INCREMENT PRIMARY KEY, imie VARCHAR (15), nazwisko VARCHAR (15), rabat INT );

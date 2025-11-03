@@ -1,0 +1,4 @@
+1. select data from imieniny where imiona like '%Karola%';
+2. select imiona from imieniny where data = '05-04';
+3. select count(data) from imieniny where imiona like '%mir%';
+4. alter table imieniny add column zyczenia VARCHAR(100);
