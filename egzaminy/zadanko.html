@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Proste dzialania</title>  
+</head>  
+<body>  
+  
+  Podaj pierwsza liczbe: <input id="a" type="number"><br>  
+  Podaj druga liczbe: <input id="b" type="number"><br>  
+  
+  <button onclick="dzialanie('+')">Dodawanie</button>  
+  <button onclick="dzialanie('-')">Odejmowanie</button>  
+  <button onclick="dzialanie('*')">Mnozenie</button>  
+  <button onclick="dzialanie('/')">Dzielenie</button>  
+  
+  <p id="wynik"></p>  
+  
+  <script>  
+    function dzialanie(operacja) {  
+      let x = Number(document.getElementById('a').value);  
+      let y = Number(document.getElementById('b').value);  
+      
+      if (operacja === '/' && y === 0) {  
+        document.getElementById('wynik').textContent = 'Nie wolno dzielic przez zero';  
+        return;  
+      }  
+      let ddd;  
+      if (operacja === '+') ddd = x + y;  
+      else if (operacja === '-') ddd = x - y;  
+      else if (operacja === '*') ddd = x * y;  
+      else if (operacja === '/') ddd = x / y;  
+  
+      document.getElementById('wynik').textContent = 'Wynik: ' + ddd;  
+    }  
+  </script>  
+  
+</body>  
+</html>  
